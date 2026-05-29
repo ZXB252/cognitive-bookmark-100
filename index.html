@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f2e8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="认知书签">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>100 本认知书签</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">100 Books Cognitive Bookmark</p>
+        <h1>100 本认知书签</h1>
+        <p class="subtitle">每天读一本的核心观点，用真实世界例子把认知模型落到生活、工作和决策里。</p>
+      </div>
+      <section class="stats" aria-label="阅读进度">
+        <div><strong id="doneCount">0</strong><span>已打卡</span></div>
+        <div><strong id="streakCount">0</strong><span>连续天数</span></div>
+        <div><strong id="progressPct">0%</strong><span>完成率</span></div>
+      </section>
+    </header>
+
+    <section class="today-panel">
+      <div>
+        <p class="section-kicker">今日推荐</p>
+        <h2 id="todayTitle">正在装载书架...</h2>
+        <p id="todayMeta"></p>
+      </div>
+      <button id="todayButton" class="primary-btn" type="button">开始今日阅读</button>
+    </section>
+
+    <nav class="controls" aria-label="筛选书目">
+      <label class="search-box">
+        <span>搜索</span>
+        <input id="searchInput" type="search" placeholder="书名、作者、观点、例子">
+      </label>
+      <div class="segmented" role="tablist" aria-label="筛选">
+        <button class="active" data-filter="all" type="button">全部</button>
+        <button data-filter="todo" type="button">未读</button>
+        <button data-filter="done" type="button">已打卡</button>
+      </div>
+    </nav>
+
+    <section class="book-list" id="bookList" aria-live="polite"></section>
+  </main>
+
+  <dialog id="bookDialog">
+    <article class="dialog-card">
+      <button class="icon-btn close-btn" id="closeDialog" type="button" aria-label="关闭">×</button>
+      <p class="section-kicker" id="dialogCategory"></p>
+      <h2 id="dialogTitle"></h2>
+      <p class="book-author" id="dialogAuthor"></p>
+      <div class="depth-grid" aria-label="深读定位">
+        <div><span>认知模型</span><strong id="dialogModel"></strong></div>
+        <div><span>适用场景</span><strong id="dialogUseCase"></strong></div>
+      </div>
+      <section>
+        <h3>核心观点</h3>
+        <ul id="dialogIdeas"></ul>
+      </section>
+      <section>
+        <h3>观点拆解</h3>
+        <div class="analysis-list" id="dialogAnalysis"></div>
+      </section>
+      <section class="insight-band">
+        <h3>反常识提醒</h3>
+        <p id="dialogCounter"></p>
+      </section>
+      <section>
+        <h3>真实世界迁移</h3>
+        <p id="dialogExample"></p>
+      </section>
+      <section>
+        <h3>案例推演</h3>
+        <div class="case-board" id="dialogCase"></div>
+      </section>
+      <section>
+        <h3>迁移矩阵</h3>
+        <div class="matrix-grid" id="dialogMatrix"></div>
+      </section>
+      <section class="practice-grid">
+        <div>
+          <h3>30 分钟读法</h3>
+          <ol id="dialogReading"></ol>
+        </div>
+        <div>
+          <h3>误用警报</h3>
+          <p id="dialogTrap"></p>
+        </div>
+      </section>
+      <section>
+        <h3>自测题</h3>
+        <div class="quiz-list" id="dialogQuiz"></div>
+      </section>
+      <section>
+        <h3>输出模板</h3>
+        <div class="template-box" id="dialogTemplate"></div>
+      </section>
+      <section>
+        <h3>行动实验</h3>
+        <p id="dialogPrompt"></p>
+        <textarea id="noteInput" rows="6" placeholder="写下：我今天遇到的真实场景、我套用的模型、下一步动作、复盘日期"></textarea>
+      </section>
+      <button id="checkButton" class="primary-btn wide" type="button">完成打卡</button>
+    </article>
+  </dialog>
+
+  <script src="app.js?v=20260529-7"></script>
+</body>
+</html>
