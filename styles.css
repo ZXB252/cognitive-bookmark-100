@@ -429,6 +429,18 @@ dialog::backdrop {
   line-height: 1.66;
 }
 
+.detail-points {
+  display: grid;
+  gap: 7px;
+  margin: 0 0 8px;
+  padding-left: 18px;
+}
+
+.detail-points li {
+  margin: 0;
+  line-height: 1.72;
+}
+
 .case-board {
   display: grid;
   gap: 8px;
